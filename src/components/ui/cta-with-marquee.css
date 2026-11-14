@@ -21,17 +21,17 @@
     linear-gradient(0deg, #10100f 0%, transparent 18%, transparent 84%, #10100f 100%);
 }
 .clinic-marquee-window { display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); height: 100%; gap: 12px; }
-.clinic-marquee-track { display: flex; width: max-content; min-height: 0; animation: clinic-photo-loop 29s linear infinite; }
-.clinic-marquee-track:nth-child(2) { animation-direction: reverse; animation-duration: 35s; }
+.clinic-marquee-track { display: flex; width: max-content; min-height: 0; animation: clinic-photo-loop 45s linear infinite; }
+.clinic-marquee-track:nth-child(2) { animation-direction: reverse; animation-duration: 42s; }
 .clinic-marquee-strip { display: flex; gap: 12px; padding-inline-end: 12px; }
 .clinic-marquee-strip img {
   display: block;
-  width: max(180px, 50vw);
+  width: max(168px, 34vw);
   height: 100%;
   object-fit: cover;
   border-radius: 14px;
 }
-@keyframes clinic-photo-loop { to { transform: translateX(-25%); } }
+@keyframes clinic-photo-loop { to { transform: translateX(-50%); } }
 @media (max-width: 760px) {
   .clinic-marquee { min-height: 65svh; }
   .clinic-marquee-media::after { background: linear-gradient(90deg, #100d0ae8, #100d0a90); }

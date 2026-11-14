@@ -2,12 +2,17 @@ import './cta-with-marquee.css'
 
 const photos = [
   [
+    ['/marquee/comparativo-perfil.webp', '50% 49%'],
+    ['/marquee/atendimento-preparacao.webp', '50% 54%'],
     ['/marquee/comparativo-tablet.webp', '50% 52%'],
     ['/retratos/clinica-5.png', '50% 26%'],
+    ['/marquee/atendimento-consultorio.webp', '50% 39%'],
   ],
   [
     ['/procedimentos/harmonizacao-depois.jpg', '50% 52%'],
+    ['/marquee/atendimento-aplicador.webp', '50% 63%'],
     ['/marquee/atendimento-laser.webp', '67% 50%'],
+    ['/marquee/atendimento-perfil.webp', '50% 45%'],
   ],
 ]
 
@@ -24,7 +29,7 @@ export function ClinicMarquee() {
           <div className="clinic-marquee-window" aria-hidden="true">
             {photos.map((row) => (
               <div className="clinic-marquee-track" key={row[0][0]}>
-                {[0, 1, 2, 3].map((copy) => (
+                {[0, 1].map((copy) => (
                   <div className="clinic-marquee-strip" key={copy}>
                     {row.map(([src, position]) => (
                       <img key={src} src={src} alt="" loading="lazy" decoding="async" width={192} height={192} style={{ objectPosition: position }} />
