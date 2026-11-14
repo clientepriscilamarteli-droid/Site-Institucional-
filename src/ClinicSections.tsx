@@ -75,17 +75,69 @@ export function HomeSections() {
   useGSAP(() => {
     const motion = gsap.matchMedia()
     motion.add('(prefers-reduced-motion: no-preference)', () => {
-      const reveal = (target: Element, from: gsap.TweenVars, end: string) => {
-        gsap.from(target, {
-          ...from,
-          ease: 'none',
-          scrollTrigger: { trigger: target, start: 'top 98%', end, scrub: 0.3 },
+      const root = editorial.current
+      if (!root) return
+
+      const listeners = new AbortController()
+      const reveal = (trigger: HTMLElement, targets: gsap.TweenTarget, start: string | (() => string) = 'top 92%', end: string | (() => string) = 'top 62%') => {
+        const timeline = gsap.timeline({
+          scrollTrigger: { trigger, start, end, scrub: 0.25, once: true },
         })
+        timeline.from(targets, { y: 42, opacity: 0, duration: 0.65, stagger: 0.16, ease: 'power2.out' })
+        trigger.addEventListener('focusin', () => {
+          timeline.scrollTrigger?.kill(false, true)
+          timeline.progress(1).pause()
+        }, { signal: listeners.signal })
+        return timeline
       }
 
-      editorial.current?.querySelectorAll('.editorial-heading > span > *, .philosophy-grid dl > div, .invitation-section p').forEach((element) => {
-        reveal(element, { opacity: 0.16, y: 36 }, 'top 56%')
+      const intro = root.querySelector<HTMLElement>('.procedure-editorial-intro')!
+      reveal(intro, intro.querySelectorAll('h2 > span'), 'top 94%', 'top 56%')
+
+      root.querySelectorAll('.procedure-editorial-pair').forEach((pair, index) => {
+        // The article has no layout box at the desktop grid breakpoint.
+        const photo = pair.querySelector<HTMLElement>('.procedure-editorial-photo')!
+        const copy = pair.querySelector<HTMLElement>('.procedure-editorial-copy')!
+        const desktop = () => window.matchMedia('(min-width: 901px)').matches
+        const photoTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: photo,
+            start: () => desktop() && index === 1 ? 'top 76%' : 'top 94%',
+            end: () => desktop() && index === 1 ? 'top 43%' : 'top 58%',
+            scrub: 0.25,
+            once: true,
+          },
+        })
+        photoTimeline
+          .fromTo(photo, { clipPath: 'inset(0% 0% 100% 0% round 8px)' }, {
+            clipPath: 'inset(0% 0% 0% 0% round 8px)', clearProps: 'clipPath', duration: 1, ease: 'none',
+          }, 0)
+          .from(photo.querySelector('img'), { scale: 1.12, duration: 1, ease: 'power2.out' }, 0)
+
+        const secondInRow = index === 1
+        reveal(copy, copy.children,
+          () => desktop() && secondInRow ? 'top 68%' : 'top 87%',
+          () => desktop() && secondInRow ? 'top 36%' : 'top 54%',
+        )
       })
+
+      root.querySelectorAll<HTMLElement>([
+        '.clinic-marquee-layout > :first-child',
+        '.doctor-profile',
+        '.doctor-questions-title',
+        '.doctor-questions',
+        '.doctor-response',
+        '.experience-intro',
+        '.clinic-gallery-grid',
+        '.philosophy-grid',
+        '.invitation-section > .editorial-wrap',
+      ].join(', ')).forEach((block) => {
+        const targets = block.matches('.doctor-questions-title') ? block : block.children
+        reveal(block, targets)
+      })
+      const refresh = () => ScrollTrigger.refresh()
+      document.fonts.addEventListener('loadingdone', refresh, { signal: listeners.signal })
+      return () => listeners.abort()
     }, editorial)
 
     return () => motion.revert()

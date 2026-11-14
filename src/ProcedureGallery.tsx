@@ -6,7 +6,7 @@ export function ProcedureGallery() {
     <section className="procedures-section procedure-story section-pad" id="procedimentos" aria-labelledby="procedures-title">
       <div className="editorial-wrap">
         <header className="procedure-editorial-intro">
-          <h2 id="procedures-title">Cuidar do rosto começa por <em>entender seus traços.</em></h2>
+          <h2 id="procedures-title"><span>Cuidar do rosto começa por</span>{' '}<span><em>entender seus traços.</em></span></h2>
         </header>
         <div className="procedure-editorial-grid">
           {procedures.map((procedure) => (

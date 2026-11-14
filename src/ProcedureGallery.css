@@ -1,6 +1,7 @@
 .procedure-story { background: #10100f; color: #fffaf4; }
 .procedure-editorial-intro { max-width: 860px; margin-bottom: clamp(28px, 5vw, 74px); }
 .procedure-editorial-intro h2 { font-family: Arial, sans-serif; letter-spacing: -.06em; }
+.procedure-editorial-intro h2 > span { display: block; }
 .procedure-editorial-intro em { font-family: var(--display); color: #f0dfc9; font-weight: 400; }
 .procedure-editorial-grid { display: grid; gap: clamp(18px, 2.8vw, 38px); }
 .procedure-editorial-pair { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; padding-bottom: 26px; border-bottom: 1px solid #e8ded237; }
