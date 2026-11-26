@@ -481,3 +481,11 @@ button { cursor: pointer; }
 @media(max-width: 760px) {
  .bio-media-gallery { grid-template-columns: minmax(0, 1fr); gap: 32px; }
 }
+.procedure-detail-cta { padding: clamp(24px, 5vw, 56px); margin-top: 48px; background: #241e19; color: #fffaf4; border-radius: 5px; }
+.procedure-detail-cta h2 { max-width: 25ch; }
+.procedure-detail-cta p { max-width: 52ch; margin: 20px 0 26px; color: #e0d4c5; }
+.detail-grid .detail-photo img { height: auto; max-height: 680px; object-fit: contain; }
+.procedure-detail-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 28px; margin-top: 22px; }
+#treatment-title { scroll-margin-top: 30px; }
+.bio-media-section > h2 { font-family: var(--display); font-weight: 400; }
+.procedure-detail-cta .editorial-link { color: #fffaf4; }

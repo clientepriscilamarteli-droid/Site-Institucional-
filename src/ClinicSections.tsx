@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, type MouseEvent } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -9,11 +9,12 @@ import { ClinicGallery } from './ClinicGallery'
 import { DoctorConversation } from './DoctorConversation'
 import MoltenMetal from './components/ui/MoltenMetal'
 import { BeforeAfter } from './components/ui/BeforeAfter'
+import { procedureMedia } from './procedure-media'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
-export function AppointmentLink({ procedure }: { procedure?: string }) {
-  return <a className="appointment-link" href={appointmentHref(procedure)} target="_blank" rel="noreferrer">Agendar avaliação <span aria-hidden="true">↗</span></a>
+export function AppointmentLink({ procedure, label = 'Agendar avaliação' }: { procedure?: string; label?: string }) {
+  return <a className="appointment-link" href={appointmentHref(procedure)} target="_blank" rel="noreferrer">{label} <span aria-hidden="true">↗</span></a>
 }
 
 export function SiteFooter() {
@@ -187,6 +188,13 @@ export function HomeSections() {
 
 export function ProcedurePage({ procedure }: { procedure: Procedure }) {
   const comparison = procedures.find(({ slug }) => slug === procedure.slug)?.comparison
+  const media = procedureMedia[procedure.slug] ?? []
+  const showTreatment = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+    const heading = document.getElementById('treatment-title')
+    heading?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })
+    heading?.focus({ preventScroll: true })
+  }
   return (
     <main className="detail-page section-pad" id="conteudo" tabIndex={-1}>
       <div className="editorial-wrap">
@@ -198,7 +206,10 @@ export function ProcedurePage({ procedure }: { procedure: Procedure }) {
             <p>{procedure.description}</p>
             <h2>O que conversar na avaliação</h2>
             <p>{procedure.evaluation}</p>
-            <AppointmentLink procedure={procedure.name} />
+            <div className="procedure-detail-actions">
+              <AppointmentLink procedure={procedure.name} label="Agendar a minha avaliação" />
+              {media.length > 0 && <a className="editorial-link" href={'#/procedimentos/' + procedure.slug} onClick={showTreatment}>Conhecer o tratamento ↓</a>}
+            </div>
           </div>
           {comparison ? <BeforeAfter {...comparison} /> : (
           <figure className={'illustrative' in procedure ? 'detail-illustration' : 'detail-photo'}>
@@ -207,28 +218,33 @@ export function ProcedurePage({ procedure }: { procedure: Procedure }) {
           </figure>
           )}
         </div>
-        {procedure.slug === 'bioestimuladores-de-colageno' && (
+        {media.length > 0 && (
           <section className="bio-media-section" aria-labelledby="bio-media-title">
+            <h2 id="treatment-title" tabIndex={-1}>Conhecer o tratamento</h2>
+            <p>{'approach' in procedure && typeof procedure.approach === 'string' ? procedure.approach : procedure.evaluation}</p>
             <h2 id="bio-media-title">Um olhar sobre o cuidado</h2>
-            <p>Registros do planejamento e da preparação do tratamento na clínica.</p>
+            <p>Conheça o atendimento e os registros de acompanhamento de {procedure.name.toLocaleLowerCase('pt-BR')}.</p>
             <div className="bio-media-gallery">
-              <figure>
-                <img src="/bioestimuladores/registro-3887.webp" alt="Paciente de perfil durante o planejamento facial" loading="lazy" />
-                <figcaption>Planejamento individual</figcaption>
-              </figure>
-              <figure>
-                <img src="/bioestimuladores/registro-4203.webp" alt="Embalagem de Sculptra junto a um tablet com registros faciais" loading="lazy" />
-                <figcaption>Registro do acompanhamento</figcaption>
-              </figure>
-              <figure>
-                <video controls playsInline preload="none" poster="/bioestimuladores/atendimento-poster.jpg" aria-label="Vídeo da preparação do material para o tratamento">
-                  <source src="/bioestimuladores/atendimento.mp4" type="video/mp4" />
-                  <a href="/bioestimuladores/atendimento.mp4">Assistir ao vídeo</a>
-                </video>
-                <figcaption>Preparação do material</figcaption>
-              </figure>
+              {media.map((item) => (
+                <figure key={item.src}>
+                  {item.video ? (
+                    <video controls playsInline preload="none" poster={item.src} aria-label={item.caption}>
+                      <source src={item.video} type="video/mp4" />
+                      <a href={item.video}>Assistir ao vídeo</a>
+                    </video>
+                  ) : <img src={item.src} alt={item.caption} loading="lazy" decoding="async" />}
+                  <figcaption>{item.caption}</figcaption>
+                </figure>
+              ))}
             </div>
-            <AppointmentLink procedure={procedure.name} />
+            <div className="procedure-detail-cta">
+              <h2>Seu próximo passo começa com uma conversa.</h2>
+              <p>Fale com a equipe para agendar sua avaliação e entender o plano de cuidado para você.</p>
+              <div className="procedure-detail-actions">
+                <AppointmentLink procedure={procedure.name} label="Agendar a minha avaliação" />
+                <a className="editorial-link" href={'#/procedimentos/' + procedure.slug} onClick={showTreatment}>Conhecer o tratamento ↑</a>
+              </div>
+            </div>
           </section>
         )}
       </div>
