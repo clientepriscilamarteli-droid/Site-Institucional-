@@ -21,7 +21,7 @@ export function SiteFooter() {
     <footer className="clinic-footer" id="contato">
       <div className="editorial-wrap footer-grid">
         <div>
-          <strong>Martelli Care Clinic</strong>
+          <strong>MARTELLI CARE CLINIC</strong>
           <p>Dra. Priscilla Martelli</p>
         </div>
         <address>
@@ -207,6 +207,30 @@ export function ProcedurePage({ procedure }: { procedure: Procedure }) {
           </figure>
           )}
         </div>
+        {procedure.slug === 'bioestimuladores-de-colageno' && (
+          <section className="bio-media-section" aria-labelledby="bio-media-title">
+            <h2 id="bio-media-title">Um olhar sobre o cuidado</h2>
+            <p>Registros do planejamento e da preparação do tratamento na clínica.</p>
+            <div className="bio-media-gallery">
+              <figure>
+                <img src="/bioestimuladores/registro-3887.webp" alt="Paciente de perfil durante o planejamento facial" loading="lazy" />
+                <figcaption>Planejamento individual</figcaption>
+              </figure>
+              <figure>
+                <img src="/bioestimuladores/registro-4203.webp" alt="Embalagem de Sculptra junto a um tablet com registros faciais" loading="lazy" />
+                <figcaption>Registro do acompanhamento</figcaption>
+              </figure>
+              <figure>
+                <video controls playsInline preload="none" poster="/bioestimuladores/atendimento-poster.jpg" aria-label="Vídeo da preparação do material para o tratamento">
+                  <source src="/bioestimuladores/atendimento.mp4" type="video/mp4" />
+                  <a href="/bioestimuladores/atendimento.mp4">Assistir ao vídeo</a>
+                </video>
+                <figcaption>Preparação do material</figcaption>
+              </figure>
+            </div>
+            <AppointmentLink procedure={procedure.name} />
+          </section>
+        )}
       </div>
     </main>
   )

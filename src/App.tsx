@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Component } from '@/components/ui/lumina-interactive-list'
+import { InstitutionalHero } from './InstitutionalHero'
 import { LiquidGlassSurface } from '@/components/ui/liquid-glass-surface'
 import { HomeSections, Manifesto, ProcedurePage, SiteFooter } from './ClinicSections'
 import { clinic, procedurePages } from './clinic'
@@ -12,7 +12,7 @@ function SiteHeader() {
       <LiquidGlassSurface />
       <a className="site-brand" href="#inicio" aria-label="Martelli Care Clinic, início">
         <img className="brand-monogram" src="/martelli-monograma.png" width="52" height="40" alt="" />
-        <span><strong>Martelli Care Clinic</strong><small>Dra. Priscilla Martelli</small></span>
+        <span><strong>MARTELLI CARE CLINIC</strong><small>Dra. Priscilla Martelli</small></span>
       </a>
       <nav aria-label="Menu principal">
         <ul className="site-menu">
@@ -79,7 +79,7 @@ export function App() {
             <div className="hero" id="inicio">
               <SiteHeader />
               <h1 className="sr-only">{siteTitle}</h1>
-              <Component />
+              <InstitutionalHero />
             </div>
             <Manifesto />
           </div>

@@ -15,12 +15,12 @@ export function ProcedureGallery() {
                 <h3 id={'editorial-' + procedure.slug}>{procedure.name}</h3>
                 <p>{procedure.description}</p>
                 <div className="procedure-editorial-links">
+                  <a className="editorial-link" href={'#/procedimentos/' + procedure.slug}>Saiba mais ↗</a>
                   <a className="editorial-link" href={appointmentHref(procedure.name)} target="_blank" rel="noreferrer">Agendar ↗</a>
                 </div>
               </div>
               <figure className="procedure-editorial-photo">
                 <img src={procedure.image} alt={procedure.alt} loading="lazy" decoding="async" style={{ objectPosition: procedure.position }} />
-                {'imageCaption' in procedure && <figcaption>{procedure.imageCaption}</figcaption>}
               </figure>
             </article>
           ))}

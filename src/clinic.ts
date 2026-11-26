@@ -30,10 +30,9 @@ export const procedures = [
   {
     slug: 'bioestimuladores-de-colageno',
     name: 'Bioestimuladores de colágeno',
-    image: '/procedimentos/aplicacao-bioestimulador.jpg',
-    alt: 'Imagem ilustrativa de uma aplicação facial com seringa',
-    imageCaption: 'Imagem ilustrativa',
-    position: '50% 57%',
+    image: '/bioestimuladores/registro-5457.webp',
+    alt: 'Paciente com marcações faciais durante o planejamento do tratamento',
+    position: '50% 44%',
     description: 'Bioestimuladores ajudam a pele a produzir colágeno. As mudanças na firmeza são graduais.',
     approach: 'Na avaliação, a Dra. Priscilla observa a região a tratar e explica o que esperar, quantas sessões podem ser indicadas e quais cuidados seguir após a aplicação.',
     indication: 'Para quem busca tratar a perda de firmeza da pele.',
