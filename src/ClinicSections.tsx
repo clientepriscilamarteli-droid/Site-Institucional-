@@ -10,6 +10,7 @@ import { DoctorConversation } from './DoctorConversation'
 import MoltenMetal from './components/ui/MoltenMetal'
 import { BeforeAfter } from './components/ui/BeforeAfter'
 import { procedureMedia } from './procedure-media'
+import { ProcedureMediaGallery } from './ProcedureMediaGallery'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -196,7 +197,7 @@ export function ProcedurePage({ procedure }: { procedure: Procedure }) {
     heading?.focus({ preventScroll: true })
   }
   return (
-    <main className="detail-page section-pad" id="conteudo" tabIndex={-1}>
+    <main className="detail-page procedure-detail-page section-pad" id="conteudo" tabIndex={-1}>
       <div className="editorial-wrap">
         <a className="editorial-link" href="#procedimentos">← Todos os procedimentos</a>
         <div className="detail-grid">
@@ -224,19 +225,7 @@ export function ProcedurePage({ procedure }: { procedure: Procedure }) {
             <p>{'approach' in procedure && typeof procedure.approach === 'string' ? procedure.approach : procedure.evaluation}</p>
             <h2 id="bio-media-title">Um olhar sobre o cuidado</h2>
             <p>Conheça o atendimento e os registros de acompanhamento de {procedure.name.toLocaleLowerCase('pt-BR')}.</p>
-            <div className="bio-media-gallery">
-              {media.map((item) => (
-                <figure key={item.src}>
-                  {item.video ? (
-                    <video controls playsInline preload="none" poster={item.src} aria-label={item.caption}>
-                      <source src={item.video} type="video/mp4" />
-                      <a href={item.video}>Assistir ao vídeo</a>
-                    </video>
-                  ) : <img src={item.src} alt={item.caption} loading="lazy" decoding="async" />}
-                  <figcaption>{item.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
+            <ProcedureMediaGallery key={procedure.slug} media={media} />
             <div className="procedure-detail-cta">
               <h2>Seu próximo passo começa com uma conversa.</h2>
               <p>Fale com a equipe para agendar sua avaliação e entender o plano de cuidado para você.</p>

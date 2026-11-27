@@ -1,4 +1,4 @@
-type ProcedureMedia = {
+export type ProcedureMedia = {
   src: string
   caption: string
   video?: string
