@@ -3,7 +3,7 @@ import { featuredProcedures } from '../../clinic'
 export const treatmentLabels = [
   ...featuredProcedures.map(({ name, slug, landingPage }) => ({
     label: slug === 'elevare' ? 'Elevare' : name,
-    href: landingPage ?? '#/procedimentos/' + slug,
+    href: landingPage,
   })),
   { label: 'A Especialista', href: '#especialista' },
   { label: 'A Experiência', href: '#atendimento' },
