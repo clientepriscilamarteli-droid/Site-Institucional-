@@ -69,6 +69,7 @@ export const featuredProcedures = [
   {
     slug: 'ultraformer',
     name: 'Ultraformer',
+    landingPage: 'https://lp-ultraformer-lovat.vercel.app/',
     image: '/retratos/ultraformer-instagram.jpg',
     alt: 'Dra. Priscilla apresentando o Ultraformer',
     position: '50% 43%',
