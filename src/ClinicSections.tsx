@@ -198,7 +198,7 @@ export function ProcedurePage({ procedure }: { procedure: Procedure }) {
   }
   return (
     <main className="detail-page procedure-detail-page section-pad" id="conteudo" tabIndex={-1}>
-      <div className="editorial-wrap">
+      <div className="editorial-wrap" key={procedure.slug}>
         <a className="editorial-link" href="#procedimentos">← Todos os procedimentos</a>
         <div className="detail-grid">
           <div>
@@ -221,12 +221,12 @@ export function ProcedurePage({ procedure }: { procedure: Procedure }) {
         </div>
         {media.length > 0 && (
           <section className="bio-media-section" aria-labelledby="bio-media-title">
-            <h2 id="treatment-title" tabIndex={-1}>Conhecer o tratamento</h2>
-            <p>{'approach' in procedure && typeof procedure.approach === 'string' ? procedure.approach : procedure.evaluation}</p>
-            <h2 id="bio-media-title">Um olhar sobre o cuidado</h2>
-            <p>Conheça o atendimento e os registros de acompanhamento de {procedure.name.toLocaleLowerCase('pt-BR')}.</p>
+            <h2 id="treatment-title" className="reading-reveal" tabIndex={-1}>Conhecer o tratamento</h2>
+            <p className="reading-reveal">{'approach' in procedure && typeof procedure.approach === 'string' ? procedure.approach : procedure.evaluation}</p>
+            <h2 id="bio-media-title" className="reading-reveal">Um olhar sobre o cuidado</h2>
+            <p className="reading-reveal">Conheça o atendimento e os registros de acompanhamento de {procedure.name.toLocaleLowerCase('pt-BR')}.</p>
             <ProcedureMediaGallery key={procedure.slug} media={media} />
-            <div className="procedure-detail-cta">
+            <div className="procedure-detail-cta reading-reveal">
               <h2>Seu próximo passo começa com uma conversa.</h2>
               <p>Fale com a equipe para agendar sua avaliação e entender o plano de cuidado para você.</p>
               <div className="procedure-detail-actions">

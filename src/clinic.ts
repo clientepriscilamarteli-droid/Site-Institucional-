@@ -78,6 +78,7 @@ export const featuredProcedures = [
   {
     slug: 'elevare',
     name: 'Protocolo Elevare',
+    landingPage: 'https://lp-elevare.vercel.app/',
     image: '/retratos/elevare-instagram.jpg',
     alt: 'Dra. Priscilla apresentando o protocolo Elevare',
     position: '50% 56%',
@@ -87,6 +88,7 @@ export const featuredProcedures = [
   {
     slug: 'toxina-botulinica',
     name: 'Toxina Botulínica',
+    landingPage: 'https://lp-toxina-botulinica-e-prenchimento.vercel.app/',
     image: '/retratos/toxina-instagram.jpg',
     alt: 'Frasco de toxina botulínica em mãos enluvadas',
     position: '50% 49%',
@@ -96,6 +98,7 @@ export const featuredProcedures = [
   {
     slug: 'blefaroplastia',
     name: 'Blefaroplastia',
+    landingPage: 'https://lp-blefaroplastia.vercel.app/',
     image: '/retratos/blefaroplastia-instagram.jpg',
     alt: 'Profissional com máscara e touca durante um procedimento',
     position: '50% 20%',

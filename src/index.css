@@ -2,7 +2,7 @@
 
 :root {
   color: #fffaf4;
-  background: #11100e;
+  background: #101010;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-synthesis: none;
   --display: "Cormorant Garamond", "Times New Roman", serif;
@@ -146,6 +146,11 @@ button { cursor: pointer; }
   --ink: #241e19;
   --warm: #6f5945;
   --hairline: #69534045;
+  --brand-night: #101010;
+  --brand-chapter: #080808;
+  --brand-surface: #191919;
+  --brand-muted: #c9c9c9;
+  --brand-line: #ffffff2e;
 }
 
 .skip-link {
@@ -298,14 +303,14 @@ button { cursor: pointer; }
   transition: background .22s, color .22s;
 }
 .appointment-link:hover { background: #fff6e8; }
-.clinic-footer { padding-block: 34px; border-top: 1px solid #d9b89540; background: #171311; color: #e1ceba; }
+.clinic-footer { padding-block: 34px; border-top: 1px solid var(--brand-line); background: var(--brand-chapter); color: var(--brand-muted); }
 .footer-grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: 24px; }
 .footer-grid strong { color: #fff8ee; font: 400 1.5rem/1.08 var(--display); }
 .footer-grid p { margin: 6px 0; }
 .footer-grid :is(address, .footer-links) { display: grid; justify-items: start; font-style: normal; }
 .footer-grid a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: underline; text-underline-offset: 4px; }
 
-.detail-header { background: #231b16; }
+.detail-header { color: #fffaf4; background: var(--brand-chapter); }
 .detail-page { background: var(--paper); color: var(--ink); min-height: 64vh; }
 .detail-grid { margin-top: 32px; }
 .detail-grid h2 { font-size: clamp(1.7rem, 3.1vw, 2.65rem); margin-top: 28px; }
@@ -362,15 +367,16 @@ button { cursor: pointer; }
 .clinic-editorial .experience-gallery figure:nth-child(1) { grid-column: 1 / span 4; grid-row: 1; }
 .clinic-editorial .experience-gallery figure:nth-child(2) { grid-column: 6 / -1; grid-row: 1; margin-top: clamp(36px, 9vw, 120px); }
 .clinic-editorial .experience-gallery figure:nth-child(3) { grid-column: 4 / span 4; grid-row: 2; }
-.clinic-editorial .philosophy-section { background: #f8f6ef; }
+.clinic-editorial .philosophy-section { background: var(--brand-chapter); color: #fffaf4; --warm: #f0dfc9; --hairline: var(--brand-line); }
+.clinic-editorial .philosophy-grid dd { color: var(--brand-muted); }
 .clinic-editorial .philosophy-grid { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 80px); }
 .clinic-editorial .philosophy-grid h2 { font-size: clamp(3.3rem, 12vw, 11rem); line-height: .78; }
 .clinic-editorial .philosophy-grid h2 > span:nth-child(2) { margin-inline-start: 23%; }
 .clinic-editorial .philosophy-grid h2 > span:nth-child(3) { margin-inline-start: 39%; }
 .clinic-editorial .philosophy-grid dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 3vw, 36px); }
 .clinic-editorial .philosophy-grid dl > div:last-child { border-bottom: 0; }
-.clinic-editorial .invitation-section { background: #eee8dc; color: var(--ink); }
-.clinic-editorial .invitation-section p { color: #594b3e; }
+.clinic-editorial .invitation-section { background: var(--brand-night); color: #fffaf4; --warm: #f0dfc9; }
+.clinic-editorial .invitation-section p { color: var(--brand-muted); }
 @media (max-width: 760px) {
   .clinic-editorial .experience-gallery figure:nth-child(1) { grid-column: 1 / span 7; }
   .clinic-editorial .experience-gallery figure:nth-child(2) { grid-column: 3 / -1; grid-row: 2; margin-top: 0; }
@@ -430,7 +436,7 @@ button { cursor: pointer; }
 .brand-comparison { margin: 18px 0; width: min(100%, 360px); }
 .brand-comparison img-comparison-slider { display: block; width: 100%; --divider-color: #f0dfc9; --divider-width: 2px; }
 .brand-comparison img { display: block; width: 100%; height: auto; }
-.brand-comparison-handle { display: grid; place-items: center; min-width: 48px; height: 48px; border: 1px solid #f0dfc9; border-radius: 50%; background: #171311; color: #f0dfc9; font-size: 1.2rem; }
+.brand-comparison-handle { display: grid; place-items: center; min-width: 48px; height: 48px; border: 1px solid #f0dfc9; border-radius: 50%; background: var(--brand-surface); color: #f0dfc9; font-size: 1.2rem; }
 .brand-comparison-labels { display: flex; justify-content: space-between; padding: 6px 0; font-size: .85rem; }
 .clinic-gallery { max-width: none; }
 .clinic-gallery-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(190px, 20vw)); gap: clamp(8px, 1.4vw, 16px); }
@@ -473,7 +479,7 @@ button { cursor: pointer; }
   .institutional-hero-shade { background: linear-gradient(180deg, #15120e80, transparent 25%, #15110d40 40%, #15110dc2 72%, #100d09e8); }
 }
 .bio-media-section { margin-top: clamp(48px, 8vw, 100px); padding-top: 32px; border-top: 1px solid var(--hairline); }
-.bio-media-section > p { max-width: 55ch; color: #65574b; margin: 16px 0 28px; }
+.bio-media-section > p { max-width: 55ch; color: var(--brand-muted); margin: 16px 0 28px; }
 .bio-media-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 24px; margin-bottom: 32px; }
 .bio-media-gallery figure { margin: 0; min-width: 0; }
 .bio-media-gallery img, .bio-media-gallery video { display: block; width: 100%; height: auto; border-radius: 5px; background: #211b17; }
@@ -481,9 +487,9 @@ button { cursor: pointer; }
 @media(max-width: 760px) {
  .bio-media-gallery { grid-template-columns: minmax(0, 1fr); gap: 32px; }
 }
-.procedure-detail-cta { padding: clamp(24px, 5vw, 56px); margin-top: 48px; background: #241e19; color: #fffaf4; border-radius: 5px; }
+.procedure-detail-cta { padding: clamp(24px, 5vw, 56px); margin-top: 48px; background: var(--brand-surface); border: 1px solid var(--brand-line); color: #fffaf4; border-radius: 5px; }
 .procedure-detail-cta h2 { max-width: 25ch; }
-.procedure-detail-cta p { max-width: 52ch; margin: 20px 0 26px; color: #e0d4c5; }
+.procedure-detail-cta p { max-width: 52ch; margin: 20px 0 26px; color: var(--brand-muted); }
 .detail-grid .detail-photo img { height: auto; max-height: 680px; object-fit: contain; }
 .procedure-detail-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 28px; margin-top: 22px; }
 #treatment-title { scroll-margin-top: 30px; }
@@ -491,8 +497,14 @@ button { cursor: pointer; }
 .procedure-detail-cta .editorial-link { color: #fffaf4; }
 /* Detail pages use their own readable type scale and preserve complete photos. */
 .detail-header { --edge: clamp(22px, 6vw, 108px); }
+.procedure-detail-page { background: var(--brand-night); color: #fffaf4; --warm: #f0dfc9; --hairline: var(--brand-line); }
 .procedure-detail-page .detail-grid { align-items: start; }
 .procedure-detail-page .detail-grid > * { min-width: 0; }
+.procedure-detail-page .detail-grid p:not(.editorial-label) { color: var(--brand-muted); }
+@media (prefers-reduced-motion: no-preference) {
+  .procedure-detail-page .detail-grid > :first-child { animation: reading-reveal .62s cubic-bezier(.22, 1, .36, 1) both; }
+  .procedure-detail-page .detail-grid > :nth-child(2) { animation: picture-reveal .72s cubic-bezier(.22, 1, .36, 1) both; }
+}
 .procedure-detail-page h1 { font-size: clamp(2.4rem, 5.2vw, 5rem); line-height: 1.14; letter-spacing: -.035em; overflow-wrap: break-word; margin-bottom: 24px; }
 .procedure-detail-page h2 { font-size: clamp(1.8rem, 3.5vw, 3.1rem); line-height: 1.2; letter-spacing: -.025em; margin: 32px 0 16px; overflow-wrap: break-word; }
 .procedure-detail-page p { font-size: clamp(.95rem, 1.2vw, 1.06rem); line-height: 1.75; margin: 0 0 20px; }
@@ -503,17 +515,17 @@ button { cursor: pointer; }
 .procedure-detail-page .bio-media-section > p { margin: 0 0 28px; }
 .procedure-detail-page .procedure-detail-cta h2 { margin-top: 0; }
 .procedure-carousel { margin-block: 30px; min-width: 0; }
-.procedure-carousel-track { position: relative; display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #8b7661 #e8dfd1; padding-bottom: 16px; }
+.procedure-carousel-track { position: relative; display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #818181 var(--brand-surface); padding-bottom: 16px; }
 .procedure-carousel-slide { flex: 0 0 100%; min-width: 0; margin: 0; scroll-snap-align: start; }
-.procedure-carousel-slide > img, .procedure-video video { display: block; width: 100%; height: clamp(300px, 65svh, 650px); object-fit: contain; background: #eae3d9; border-radius: 5px; }
-.procedure-carousel-slide figcaption { margin-top: 14px; line-height: 1.6; color: #65574b; font-size: .9rem; }
+.procedure-carousel-slide > img, .procedure-video video { display: block; width: 100%; height: clamp(300px, 65svh, 650px); object-fit: contain; background: var(--brand-chapter); border-radius: 5px; }
+.procedure-carousel-slide figcaption { margin-top: 14px; line-height: 1.6; color: var(--brand-muted); font-size: .9rem; }
 .procedure-video { position: relative; }
-.procedure-video-toggle { position: absolute; top: 12px; right: 12px; padding: 10px 16px; min-height: 44px; background: #241e19e8; color: #fffaf4; border: 1px solid #f0dfc977; border-radius: 4px; font-size: .8rem; }
+.procedure-video-toggle { position: absolute; top: 12px; right: 12px; padding: 10px 16px; min-height: 44px; background: #101010e8; color: #fffaf4; border: 1px solid #ffffff77; border-radius: 4px; font-size: .8rem; }
 .procedure-carousel-controls { display: flex; align-items: center; justify-content: end; gap: 12px; margin-top: 12px; }
 .procedure-carousel-controls span { margin-right: auto; font-size: .85rem; }
-.procedure-carousel-controls button { width: 48px; height: 48px; border: 1px solid #8b7661; color: #241e19; border-radius: 50%; font-size: 1.4rem; }
+.procedure-carousel-controls button { width: 48px; height: 48px; border: 1px solid #777; color: inherit; background: transparent; border-radius: 50%; font-size: 1.4rem; }
 .procedure-carousel-controls button:disabled { opacity: .3; cursor: default; }
-.procedure-carousel-controls button:hover:not(:disabled) { background: #e8dfd1; }
+.procedure-carousel-controls button:hover:not(:disabled) { background: var(--brand-surface); }
 @media (max-width: 760px) {
  .procedure-detail-page { padding-block: 40px 64px; }
  .procedure-detail-page .detail-grid { gap: 32px; }
