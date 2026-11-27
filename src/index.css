@@ -2,7 +2,7 @@
 
 :root {
   color: #fffaf4;
-  background: #101010;
+  background: #11100e;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-synthesis: none;
   --display: "Cormorant Garamond", "Times New Roman", serif;
@@ -303,7 +303,7 @@ button { cursor: pointer; }
   transition: background .22s, color .22s;
 }
 .appointment-link:hover { background: #fff6e8; }
-.clinic-footer { padding-block: 34px; border-top: 1px solid var(--brand-line); background: var(--brand-chapter); color: var(--brand-muted); }
+.clinic-footer { padding-block: 34px; border-top: 1px solid #d9b89540; background: #171311; color: #e1ceba; }
 .footer-grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: 24px; }
 .footer-grid strong { color: #fff8ee; font: 400 1.5rem/1.08 var(--display); }
 .footer-grid p { margin: 6px 0; }
@@ -367,16 +367,15 @@ button { cursor: pointer; }
 .clinic-editorial .experience-gallery figure:nth-child(1) { grid-column: 1 / span 4; grid-row: 1; }
 .clinic-editorial .experience-gallery figure:nth-child(2) { grid-column: 6 / -1; grid-row: 1; margin-top: clamp(36px, 9vw, 120px); }
 .clinic-editorial .experience-gallery figure:nth-child(3) { grid-column: 4 / span 4; grid-row: 2; }
-.clinic-editorial .philosophy-section { background: var(--brand-chapter); color: #fffaf4; --warm: #f0dfc9; --hairline: var(--brand-line); }
-.clinic-editorial .philosophy-grid dd { color: var(--brand-muted); }
+.clinic-editorial .philosophy-section { background: #f8f6ef; }
 .clinic-editorial .philosophy-grid { grid-template-columns: 1fr; gap: clamp(28px, 6vw, 80px); }
 .clinic-editorial .philosophy-grid h2 { font-size: clamp(3.3rem, 12vw, 11rem); line-height: .78; }
 .clinic-editorial .philosophy-grid h2 > span:nth-child(2) { margin-inline-start: 23%; }
 .clinic-editorial .philosophy-grid h2 > span:nth-child(3) { margin-inline-start: 39%; }
 .clinic-editorial .philosophy-grid dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 3vw, 36px); }
 .clinic-editorial .philosophy-grid dl > div:last-child { border-bottom: 0; }
-.clinic-editorial .invitation-section { background: var(--brand-night); color: #fffaf4; --warm: #f0dfc9; }
-.clinic-editorial .invitation-section p { color: var(--brand-muted); }
+.clinic-editorial .invitation-section { background: #eee8dc; color: var(--ink); }
+.clinic-editorial .invitation-section p { color: #594b3e; }
 @media (max-width: 760px) {
   .clinic-editorial .experience-gallery figure:nth-child(1) { grid-column: 1 / span 7; }
   .clinic-editorial .experience-gallery figure:nth-child(2) { grid-column: 3 / -1; grid-row: 2; margin-top: 0; }

@@ -1,4 +1,4 @@
-.procedure-story { background: var(--brand-night); color: #fffaf4; }
+.procedure-story { background: #10100f; color: #fffaf4; }
 .procedure-editorial-intro { max-width: 860px; margin-bottom: clamp(28px, 5vw, 74px); }
 .procedure-editorial-intro h2 { font-family: Arial, sans-serif; letter-spacing: -.06em; }
 .procedure-editorial-intro h2 > span { display: block; }
@@ -34,11 +34,11 @@
 }
 /* Treatment cards follow the supplied photograph-and-caption reference. */
 .procedure-editorial-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); }
-.procedure-editorial-pair:nth-child(n) { display: flex; flex-direction: column; gap: 0; padding: 0; border: 1px solid var(--brand-line); background: var(--brand-surface); color: inherit; }
+.procedure-editorial-pair:nth-child(n) { display: flex; flex-direction: column; gap: 0; padding: 0; border: 1px solid #d7cbbb; background: #f7f3eb; color: #241e19; }
 .procedure-editorial-pair:nth-child(n) .procedure-editorial-photo { order: -1; aspect-ratio: 4 / 3; min-height: 0; border-radius: 0; }
 .procedure-editorial-pair:nth-child(n) .procedure-editorial-copy { padding: clamp(22px, 3vw, 36px); border: 0; flex: 1; }
 .procedure-editorial-copy h3 { font-size: clamp(1.8rem, 3vw, 2.8rem); }
-.procedure-editorial-copy p { color: var(--brand-muted); font-size: .92rem; }
+.procedure-editorial-copy p { color: #65574b; font-size: .92rem; }
 .procedure-editorial-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 22px; }
 @media (max-width: 760px) {
   .procedure-editorial-grid { grid-template-columns: minmax(0, 1fr); }
