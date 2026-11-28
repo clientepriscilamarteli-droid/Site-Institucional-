@@ -3,6 +3,9 @@ import { clinic } from './clinic'
 
 const photos = [
   { src: '/retratos/consultorio-martelli.jpg', title: 'Consultório', position: '50% 52%' },
+  { src: '/clinica/sala-de-espera.webp', title: 'Sala de espera com jardim', position: '50% 50%' },
+  { src: '/clinica/jardim.webp', title: 'Jardim da clínica', position: '50% 50%' },
+  { src: '/clinica/circulacao.webp', title: 'Ambiente de acolhimento', position: '50% 50%' },
 ]
 
 export function ClinicGallery() {
@@ -32,12 +35,22 @@ export function ClinicGallery() {
           </div>
         </article>
       </div>
-      <dialog ref={dialog} className="clinic-gallery-dialog" aria-labelledby="clinic-gallery-title" aria-describedby="clinic-gallery-location" onClick={(event) => {
+      <dialog ref={dialog} className="clinic-gallery-dialog" aria-labelledby="clinic-gallery-title" aria-describedby="clinic-gallery-location" onKeyDown={(event) => {
+        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+          event.preventDefault()
+          setActive((index) => (index + (event.key === 'ArrowRight' ? 1 : -1) + photos.length) % photos.length)
+        }
+      }} onClick={(event) => {
         if (event.target === event.currentTarget) dialog.current?.close()
       }}>
         <div>
-          <button type="button" aria-label="Fechar foto" onClick={() => dialog.current?.close()}>×</button>
+          <button className="clinic-gallery-close" type="button" aria-label="Fechar foto" onClick={() => dialog.current?.close()}>×</button>
           <img src={photo.src} alt={photo.title} loading="lazy" />
+          <div className="clinic-gallery-controls" aria-label="Navegar pelas fotos">
+            <button type="button" aria-label="Foto anterior" onClick={() => setActive((index) => (index - 1 + photos.length) % photos.length)}>←</button>
+            <span aria-live="polite">{active + 1} / {photos.length}</span>
+            <button type="button" aria-label="Próxima foto" onClick={() => setActive((index) => (index + 1) % photos.length)}>→</button>
+          </div>
           <div className="clinic-gallery-caption">
             <h3 id="clinic-gallery-title">{photo.title}</h3>
             <p id="clinic-gallery-location">Martelli Care Clinic · Jardim Paulista</p>

@@ -420,6 +420,9 @@ button { cursor: pointer; }
 .clinic-gallery-caption h3, .clinic-gallery-caption p { margin: 0; }
 .clinic-gallery-caption h3 { font: 400 1.8rem/1.15 var(--display); }
 .clinic-gallery-caption p { color: #d8c5ad; }
+.clinic-gallery-controls { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 14px 20px 0; }
+.clinic-gallery-dialog .clinic-gallery-controls button { position: static; border: 1px solid #e8ded237; font-size: 1.2rem; }
+#especialista, #atendimento { scroll-margin-top: 24px; }
 @media (max-width: 640px) {
   .clinic-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(110px, 33vw, 190px); }
 }
@@ -462,14 +465,29 @@ button { cursor: pointer; }
 .institutional-hero-actions a:last-child { color: #241e19; background: #f0dfc9; }
 .institutional-hero-actions a:hover { background: #fffaf4; color: #241e19; }
 @media (min-width: 761px) {
-  .institutional-hero-photo { width: 100%; left: 0; object-position: 50% 27%; }
+  .institutional-hero-media { background: #24211e; }
+  .institutional-hero-photo {
+    width: min(62vw, 95svh);
+    left: auto;
+    right: 0;
+    object-position: 50% 0%;
+    mask-image: linear-gradient(90deg, transparent, #000 24%);
+  }
 }
 @media (max-width: 760px) {
   .institutional-hero-copy { top: auto; bottom: 190px; width: auto; right: var(--edge); transform: none; }
   .institutional-hero-copy .hero-manifesto { font-size: clamp(2.2rem, 8vw, 3.4rem); }
   .institutional-hero-actions { gap: 8px; margin-top: 20px; }
   .institutional-hero-actions a { font-size: .72rem; padding: 10px 13px; gap: 10px; }
-  .institutional-hero-photo { object-position: 50% 22%; }
+  .institutional-hero-media { background: #09090b; }
+  .institutional-hero-photo {
+    top: 110px;
+    height: calc(100% - 110px);
+    object-fit: contain;
+    object-position: center top;
+    mask-image: linear-gradient(transparent, #000 8%, #000 72%, transparent 100%);
+  }
+  .hero .liquid-glass-surface { backdrop-filter: none; }
   .institutional-hero-shade { background: linear-gradient(180deg, #15120e80, transparent 25%, #15110d40 40%, #15110dc2 72%, #100d09e8); }
 }
 .bio-media-section { margin-top: clamp(48px, 8vw, 100px); padding-top: 32px; border-top: 1px solid var(--hairline); }

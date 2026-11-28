@@ -1,0 +1,68 @@
+/* Ultraformer visual guide. Scoped to the institutional site and its detail pages. */
+#institucional {
+  --display: Arial, Helvetica, sans-serif;
+  --paper: #f9f7f2;
+  --sand: #fafafa;
+  --ink: #12120f;
+  --warm: #d4d4d8;
+  --hairline: #dedbd4;
+  color: #fff;
+  background: #09090b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#institucional ::selection { background: #ff6317; color: #12120f; }
+#institucional em { font-family: Georgia, 'Times New Roman', serif; }
+#institucional :is(.hero, .institutional-hero-media, .procedures-section, .procedure-story, .clinic-marquee, .doctor-dialogue, .experience-section, .detail-header, .clinic-footer) {
+  background-color: #09090b;
+  color: #fff;
+  --warm: #d4d4d8;
+}
+#institucional :is(.hero-manifesto em, .manifesto-wrap h2 em, .editorial-heading em, .doctor-dialogue h2 em, .clinic-marquee h2 em, .procedure-editorial-intro em) { color: #fff; }
+#institucional :is(.site-brand small, .site-menu, .treatment-labels li, .footer-grid strong) { color: #fff; }
+#institucional :is(.doctor-registration, .doctor-profile p, .invitation-section p, .clinic-marquee p, .manifesto-wrap > p:last-child, .clinic-gallery-caption p, .clinic-location address, .clinic-footer) { color: #d4d4d8; }
+#institucional :is(.hero-manifesto, .site-brand, .site-menu, .treatment-labels li) { text-shadow: 0 2px 20px #0008; }
+#institucional .institutional-hero-shade {
+  background: linear-gradient(90deg, #09090bb3, #09090b55 40%, transparent 75%), linear-gradient(180deg, #09090b55, transparent 28%, transparent 62%, #09090bcc);
+}
+#institucional :is(.philosophy-section, .detail-page) { background: #f9f7f2; color: #12120f; --warm: #4a4a46; }
+#institucional .invitation-section { background: #fafafa; color: #12120f; }
+#institucional :is(.philosophy-section, .invitation-section, .detail-page) h2.editorial-heading em { color: #12120f; }
+#institucional :is(.philosophy-grid dd, .invitation-section p, .detail-grid p:not(.editorial-label), .bio-media-section > p) { color: #4a4a46; }
+#institucional .procedure-editorial-pair { background: #fff; border-color: #dedbd4; border-radius: 2px; color: #12120f; }
+#institucional .procedure-editorial-copy p { color: #4a4a46; }
+#institucional :is(.clinic-gallery-grid button, .clinic-location, .clinic-gallery-dialog) { background: #18181b; border-color: #27272a; border-radius: 2px; }
+#institucional .clinic-gallery-label { background: linear-gradient(transparent, #09090be6); color: #fff; }
+#institucional :is(.doctor-questions button, .clinic-gallery-zoom, .clinic-gallery-dialog button) { border-color: #52525b; border-radius: 2px; color: #fff; background-color: #18181b; }
+#institucional .doctor-questions button[aria-pressed='true'] { background: #fff; color: #12120f; border-color: #fff; }
+#institucional :is(.institutional-hero-actions a, .appointment-link) { border-radius: 2px; font-family: Arial, Helvetica, sans-serif; font-weight: 500; }
+#institucional :is(.appointment-link, .institutional-hero-actions a:last-child) {
+  border: 2px solid transparent;
+  background: linear-gradient(180deg, #252525, #080808) padding-box,
+    linear-gradient(132deg, #555, #eee 16%, #888 28%, #242424 46%, #f3f3f3 66%, #555 85%, #d3d3d3) border-box;
+  box-shadow: 0 1px 2px #0003, 0 7px 16px #0002;
+  color: #fff;
+}
+#institucional :is(.appointment-link, .institutional-hero-actions a:last-child):hover {
+  background: linear-gradient(180deg, #383838, #181818) padding-box,
+    linear-gradient(132deg, #eee, #555 35%, #f3f3f3 66%, #888) border-box;
+  color: #fff;
+}
+#institucional .institutional-hero-actions a:first-child { background: #09090b44; color: #fff; border-color: #d4d4d8; }
+#institucional .institutional-hero-actions a:first-child:hover { background: #fff; color: #12120f; }
+#institucional :is(.doctor-questions-title, .philosophy-grid dl div, .treatment-labels li, .clinic-footer, .experience-intro) { border-color: #52525b; }
+#institucional .philosophy-grid dl div { border-color: #dedbd4; }
+#institucional .skip-link { background: #ff6317; color: #12120f; }
+#institucional :focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+#institucional .clinic-gallery-grid > button:nth-of-type(4) { grid-column: 1 / -1; grid-row: 3; aspect-ratio: 5 / 2; }
+#institucional .clinic-marquee-strip img { border-radius: 2px; }
+#institucional .clinic-marquee-media::after {
+  background: linear-gradient(90deg, #09090bf2, #09090bc2 37%, #09090b38 80%), linear-gradient(0deg, #09090b, transparent 18%, transparent 84%, #09090b);
+}
+@media (max-width: 760px) {
+  #institucional .institutional-hero-shade { background: linear-gradient(180deg, #09090b66, transparent 25%, #09090b22 40%, #09090bcc 76%, #09090b); }
+  #institucional .clinic-gallery-grid > button:nth-of-type(4) { grid-row: auto; grid-column: 1 / -1; aspect-ratio: 3 / 2; }
+  #institucional .clinic-marquee-media::after { background: linear-gradient(90deg, #09090be8, #09090b90); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  #institucional :is(.appointment-link, .institutional-hero-actions a, .doctor-questions button) { transition: color 200ms cubic-bezier(.22,.61,.36,1), background-color 200ms cubic-bezier(.22,.61,.36,1), border-color 200ms cubic-bezier(.22,.61,.36,1); }
+}

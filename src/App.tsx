@@ -3,6 +3,7 @@ import { InstitutionalHero } from './InstitutionalHero'
 import { LiquidGlassSurface } from '@/components/ui/liquid-glass-surface'
 import { HomeSections, Manifesto, ProcedurePage, SiteFooter } from './ClinicSections'
 import { clinic, procedurePages } from './clinic'
+import './institutional-brand.css'
 
 const siteTitle = 'Martelli Care Clinic · Dra. Priscilla Martelli'
 
@@ -45,11 +46,14 @@ export function App() {
       return
     }
     const target = document.getElementById(hash.slice(1))
-    target?.scrollIntoView()
+    target?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+      block: 'start',
+    })
   }, [hash, isDetail, privacy, procedure])
 
   return (
-    <>
+    <div id="institucional" className="institutional-site">
       <a
         className="skip-link"
         href={isDetail ? '#conteudo' : '#manifesto'}
@@ -87,6 +91,6 @@ export function App() {
         </main>
       )}
       <SiteFooter />
-    </>
+    </div>
   )
 }
